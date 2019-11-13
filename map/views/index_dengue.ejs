@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-109063438-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'UA-109063438-1');
+        // if (window.Notification) {
+        //     Notification.requestPermission().then(function(result) {
+        //         // alert(result);
+
+
+        //         // result可能是是granted, denied, 或default.
+        //     });
+        // }
+    </script>
+    <title>
+        <%=Language.Title%>
+    </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta property="og:title" content="傳染病決策地圖 | 登革熱疫情主題地圖">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="http://www.geologycloud.tw/GeoCloud/GeologicMap/Map/">
+    <meta property="og:description" content="">
+    <meta name="google-signin-scope" content="profile email">
+    <meta name="google-signin-client_id" content="154528275611-88csl6vf2rbeloemqeha558kr303795n.apps.googleusercontent.com">
+    <!--     <meta property="og:image" content="http://www.geologycloud.tw/GeoCloud/GeologicMap/Map/Styles/images/icons/logo.jpg"> -->
+    <meta property="og:site_name" content="傳染病決策地圖 | 疫情主題地圖">
+    <!-- <link href="/map_core/style/bootstrap.min.css" rel="stylesheet"> -->
+    <link href="/map_core/style/fontawesome.min.css" rel="stylesheet">
+    <link href="/map_core/style/fontawesome-all.min.css" rel="stylesheet">
+    <!-- <link href="/map_core/style/font-awesome.min.css" rel="stylesheet"> -->
+    <!-- <link href="/map_core/font-awesome.min.css" rel="stylesheet"> -->
+    <link href="/map_core/style/cgs.css" rel="stylesheet">
+    <link href="/map_core/style/geo.css" rel="stylesheet">
+    <link href="/map_core/style/jquery-ui.css" rel="stylesheet">
+    <link href="/map_core/style/leaflet.css" rel="stylesheet">
+    <link href="/map_core/style/leaflet.draw.css" rel="stylesheet">
+    <link href="/map_core/style/leaflet.markercluster.css" rel="stylesheet">
+    <!-- <link href="/map_core/style/sweet-alert.css" rel="stylesheet"> -->
+    <link href="/<%=Language.FolderName%>/stylesheets/bootstrap.css" rel="stylesheet">
+    <link href="/<%=Language.FolderName%>/stylesheets/bootstrap-datepicker.css" rel="stylesheet">
+    <link href="/<%=Language.FolderName%>/stylesheets/bootstrap-tagsinput.css" rel="stylesheet">
+    <link href="/<%=Language.FolderName%>/stylesheets/map/map.css" rel="stylesheet">
+    <link href="/<%=Language.FolderName%>/stylesheets/map/site.css" rel="stylesheet">
+    <link href="/map_core/style/colorbox.css" rel="stylesheet">
+    <link href="/map_core/style/jquery_dataTable.min.css" rel="stylesheet">
+    <link href="/map_core/style/bar.css" rel="stylesheet">
+    <link href="/map_core/style/loaders.min.css" rel="stylesheet">
+    <link href="/map_core/lib/toastr.min.css" rel="stylesheet">
+    <link href="/map/lib/tour.css" rel="stylesheet">
+    <script src="/map_core/lib/modernizr.js"></script>
+    <script src="/map/lib/sweetalert.min.js"></script>
+    <!-- <script src="/map_core/lib/sweet-alert.min.js"></script> -->
+    <script src="/map_core/lib/Blob.js"></script>
+    <script src="/map_core/lib/FileSaver.js"></script>
+    <script src="/map_core/lib/html2canvas.js"></script>
+    <script src="/map_core/lib/dom-to-image.min.js"></script>
+    <script src="/map_core/lib/async.min.js"></script>
+    <script src="/map_core/lib/jszip.min.js"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div id="platform">
+        <div id="map"></div>
+    </div>
+
+    <!-- Social Network -->
+    <div id="fb-root"></div>
+    <script type="text/javascript" src="https://platform.linkedin.com/in.js">
+        api_key: 814251 b3trt3mp
+    </script>
+    <script src="/map/lib/Dropbox-sdk.min.js"></script>
+    <!-- <script>
+    (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s);
+        js.id = id;
+        js.src = 'https://connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v2.11&appId=139192700132602';
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+    </script> -->
+    <script id="facebook-jssdk" type="text/javascript" src="https://connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v2.11&appId=139192700132602"></script>
+    <!-- 將這個標記放在標頭中，或放在內文結尾標記前面。 -->
+    <script src="https://apis.google.com/js/platform.js">
+        {
+            lang: 'zh-TW'
+        }
+    </script>
+    <script type="text/javascript">
+        var User = {};
+        User.username = '<%=User.username%>';
+        User.userid = '<%=User.userid%>';
+        User.permission = '<%=User.permission%>';
+        User.email = '<%=User.email%>';
+        User.regional = '<%=User.regional%>';
+        if (User.regional && User.regional == 'true')
+            User.regional = true
+        else
+            User.regional = false
+        User.city = '<%=User.city%>';
+        User.dist = '<%=User.dist%>';
+        User.xmin = '<%=User.xmin%>';
+        User.xmax = '<%=User.xmax%>';
+        User.ymin = '<%=User.ymin%>';
+        User.ymax = '<%=User.ymax%>';
+        var L_PREFER_CANVAS = true;
+    </script>
+    <script src="/<%=Language.FolderName%>/language/map/<%=Language.LanguageCode%>.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBx0UlivKfK1BokDNBoMI_GxUCpq7mksKM">
+    </script>
+    <!-- <script src="https://maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places"></script> -->
+    <script src='/map_core/lib/pbf.js'></script>
+    <script src='/map_core/lib/geobuf.js'></script>
+    <script src="/map_core/lib/proj4.js"></script>
+    <script src="/map_core/lib/leaflet-src.js"></script>
+    <script src="/map_core/lib/leaflet.draw.js"></script>
+    <script src="/map_core/lib/leaflet.tileLayer.grayscale.js"></script>
+    <script src="/map_core/lib/heatmap.min.js"></script>
+    <script src="/map_core/lib/leaflet-heatmap.js"></script>
+    <script src='https://npmcdn.com/@turf/turf/turf.min.js'></script>
+    <script src="/map_core/lib/geojson-vt.js"></script>
+
+    <script src="/map_core/lib/jquery.min.js"></script>
+    <script src="/map_core/lib/jquery-ui.min.js"></script>
+    <script src="/map_core/lib/jquery_dataTable.min.js"></script>
+    <script src="/map_core/lib/jquery.colorbox.js"></script>
+
+    <script src="/map_core/lib/bootstrap.min.js"></script>
+    <script src="/map_core/lib/d3.min.js"></script>
+    <script src="/map/lib/d3-tip/index.js"></script>
+    <script src="/<%=Language.FolderName%>/javascripts/d3.v4.min.js"></script>
+    <script src="/map/lib/plotly-basic.min.js"></script>
+
+    <script src="/map_core/lib/Sortable.min.js"></script>
+    <script src="/map_core/lib/toastr.min.js"></script>
+    <script src="/map/lib/tour.js"></script>
+    <script src="/map_core/map_core.js"></script>
+    <script src="/<%=Language.FolderName%>/javascripts/FileSaver.min.js"></script>
+    <script src="/<%=Language.FolderName%>/javascripts/jquery.js"></script>
+    <!-- <script src="/<%=Language.FolderName%>/javascripts/bootstrap.min.js"></script> -->
+    <script src="/<%=Language.FolderName%>/javascripts/bootstrap-datepicker.js"></script>
+    <script src="/<%=Language.FolderName%>/javascripts/bootstrap-tagsinput.js"></script>
+    <script src="/<%=Language.FolderName%>/javascripts/map/map.js"></script>
+    <script src="/<%=Language.FolderName%>/javascripts/map/app_dengue.js"></script>
+</body>
+
+</html>

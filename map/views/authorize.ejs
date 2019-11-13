@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="<%=csrfToken%>">
+    <title>傳染病決策地圖 - 登入</title>
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/font-awesome/css/font-awesome.css" rel="stylesheet">
+    <!-- Morris -->
+    <link href="/css/plugins/morris/morris-0.4.3.min.css" rel="stylesheet">
+    <link href="/css/animate.css" rel="stylesheet">
+    <link href="/css/style.css" rel="stylesheet">
+</head>
+
+<body class="gray-bg">
+    <div class="loginColumns animated fadeInDown">
+        <div class="row">
+            <div class="col-md-6">
+                <h2 class="font-bold">歡迎來到人畜共通傳染病決策系統</h2>
+                <p>
+                    人畜共通傳染病決策系統是專為監控全國流行性傳染所設立，透過全國法定傳染病態勢分析，讓我們能夠完全掌握傳染病流行趨勢，並加以預防。
+                    <BR>
+                    <BR>
+                    <h4>備註：</h4>
+                    <BR> 1.系統初步建置中，功能若有異常敬請見諒。
+                    <BR> 2.資料接取皆為測試資料，請勿作為正式資料使用。
+                </p>
+            </div>
+            <div class="col-md-6">
+                <div class="tabs-container">
+                    <ul class="nav nav-tabs">
+                        <li class="active tab_loginType"><a data-toggle="tab" href="#panel-1" aria-expanded="true">一般登入</a></li>
+                        <li class="tab_loginType"><a data-toggle="tab" href="#panel-2" aria-expanded="false">讀卡機登入</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content">
+                        <div id="panel-1" class="tab-pane panel_loginType active">
+                            <div class="panel-body">
+                                <form class="m-t" role="form" action="/map/authorize_check" method="post">
+                                    <div class="form-group">
+                                        <input class="form-control" name="name" placeholder="使用者帳號" required="" value="">
+                                    </div>
+                                    <div class="form-group">
+                                        <input class="form-control" name="pass" type="password" placeholder="密碼"
+                                            required="" value="">
+                                        <input type="hidden" name="_csrf" value="<%=csrfToken%>">
+                                    </div>
+                                    <div>
+                                        <button type="submit" name="method" value="check_urm" class="btn btn-primary block full-width m-b">URM登入</button>
+                                        <h4><span align="center" class="full-width">或是使用</span></h4>
+                                        <button type="submit" name="method" value="check_egov" class="btn btn-primary block full-width m-b"
+                                            formnovalidate>e政府登入</button>
+                                        <h4>還沒有帳號嗎? <i>請透過以下按鈕申請:</i></h4>
+                                        <button type="button" onclick="user_apply_to_urm()"
+                                            class="btn btn-warning block full-width m-b">權限申請</button>
+                                    </div>
+                                    <% if(locals.error) { %>
+                                    <div style="color: red;">
+                                        <%=error%>
+                                    </div>
+                                    <% } %>
+                                </form>
+                            </div>
+                        </div>
+                        <div id="panel-2" class="tab-pane panel_loginType">
+                            <div class="panel-body">
+                                <div>
+                                    <div class="form-group">
+                                        <h4><span align="center" class="full-width">卡片種類</span></h4>
+                                        <select id="select_cardType" class="form-control m-b" name="account">
+                                            <option value="MOICA">自然人憑證</option>
+                                            <option value="HPC">醫事人員卡</option>
+                                            <option value="CHUNGHWA">CDC員工證</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <input id="text_pass" type="password" class="form-control" placeholder="密碼"
+                                            style="display:none">
+                                    </div>
+                                    <div id="div_pluginArea" class="form-group">
+                                    </div>
+                                    <div id="installGPKI">
+                                    </div>
+                                    <div id="installHCA">
+                                    </div>
+                                    <div id="installHCACS">
+                                    </div>
+                                    <div id="errorDisplay">
+                                    </div>
+                                    <button value="check_card" class="btn btn-primary block full-width m-b" onclick="checkATL()">讀卡機登入</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="/js/jquery-3.1.1.min.js"></script>
+    <script src="/map/lib/sweetalert.min.js"></script>
+    <script charset="utf-8" src="https://urmsso.cdc.gov.tw/changing/JS/CGGPKICryptATLADPT.js"></script>
+    <script charset="utf-8" src="https://urmsso.cdc.gov.tw/changing/JS/CGHCAATLADPT.js"></script>
+    <script charset="utf-8" src="https://urmsso.cdc.gov.tw/changing/JS/CGHCACSAPIATLADPT.js"></script>
+    <script src="/map/javascripts/authorize_card.js" type="text/javascript"></script>
+    <script src="/map/javascripts/carderror.js" type="text/javascript"></script>
+    <script>
+        //onclick="javascript:location.href='/map/user_apply'"
+    function user_apply_to_urm(){
+        url="https://urmsso.cdc.gov.tw/UC01/UI_A101"
+        //url="https://urm2.cdc.gov.tw/URM/UC01/UI_A101"
+        post(url, {SYS_ID: 'zone',RETURN_URL:"/map/user_apply_from_urm" });
+    }
+
+
+    function post(path, params, method) {
+    method = method || "post"; // Set method to post by default if not specified.
+
+    // The rest of this code assumes you are not using a library.
+    // It can be made less wordy if you use one.
+    var form = document.createElement("form");
+    form.setAttribute("method", method);
+    form.setAttribute("action", path);
+
+    for(var key in params) {
+        if(params.hasOwnProperty(key)) {
+            var hiddenField = document.createElement("input");
+            hiddenField.setAttribute("type", "hidden");
+            hiddenField.setAttribute("name", key);
+            hiddenField.setAttribute("value", params[key]);
+
+            form.appendChild(hiddenField);
+        }
+    }
+
+    document.body.appendChild(form);
+    form.submit();
+}
+    
+    </script>
+</body>
+
+</html>

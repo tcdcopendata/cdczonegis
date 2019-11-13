@@ -1,0 +1,216 @@
+<!--
+*
+*  INSPINIA - Responsive Admin Theme
+*  version 2.7
+*
+-->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+        <title>人畜共通傳染病跨領域資訊整合系統 | 疫情主題地圖</title>
+
+
+        <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
+
+        <!-- Toastr style -->
+        <link href="css/plugins/toastr/toastr.min.css" rel="stylesheet">
+
+        <!-- Gritter -->
+        <link href="js/plugins/gritter/jquery.gritter.css" rel="stylesheet">
+
+        <link href="css/animate.css" rel="stylesheet">
+        <link href="css/style.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css"
+           integrity="sha512-M2wvCLH6DSRazYeZRIm1JnYyh22purTM+FDB5CsyxtQJYeKq83arPe5wgbNmcFXGqiSH2XR8dT/fJISVA1r/zQ=="
+           crossorigin=""/>
+        <link href="stylesheets/site.css" rel="stylesheet">
+        <!-- <link href="stylesheets/mapbox.css" rel="stylesheet"> -->
+        <link href="stylesheets/map2.css" rel="stylesheet">
+
+
+    </head>
+
+    <body>
+        <div id="wrapper">
+        <!-- 左邊功能選單 -->
+
+            <div id="mapid" class="leaflet-container leaflet-retina leaflet-fade-anim">
+                <div class="leaflet-control-container">
+                    <div class="leaflet-top leaflet-left">
+                        <div class="leaflet-control">
+                            <div class="gc-btn gc-btn-xs" title="放大">
+                                <button id="btn-map-zoomin" class="" style="border-bottom-left-radius: 0px; border-bottom-right-radius: 0px;"><i class="fa fa-plus"></i></button>
+                            </div>
+                            <div class="gc-btn gc-btn-xs" title="縮小">
+                                <button id="btn-map-zoomout" class="" style="border-top-left-radius: 0px; border-top-right-radius: 0px;"><i class="fa fa-minus"></i></button>
+                            </div>
+                        </div>
+                        <div class="leaflet-control" id="map-geocoding-area" style="clear: none; height: 30px;">
+                            <div class="" id="map-geocoding-input">
+
+                                <input class="" type="text" placeholder="請輸入機關名稱、法傳通報編號等">
+                                <!-- <span class="" style="left: 0px;"><i class="fa fa-phone"></i></span> -->
+                                <span class="" style="left: 0px; font-size: 18px;"><i class="fa fa-bars"><a href="#"></i></span>
+                                <span class="" style="right: 0px;"><i class="fa fa-search"></i></span>
+                            </div>
+                            <div class="" id="map-geocoding-listw">
+                                <div class="list-group" id="map-geocoding-list">
+                                    <a class="list-group-item" href="#"><i class="fa fa-map-marker geocoding-landmark"></i>疾病管制署</a>
+                                    <a class="list-group-item" href="#"><i class="fa fa-map-marker geocoding-landmark"></i>台北市衛生局</a>
+                                    <a class="list-group-item" href="#"><i class="fa fa-map-marker geocoding-landmark"></i>法傳編號201700013</a>
+                                    <a class="list-group-item" href="#"><i class="fa fa-map-marker geocoding-landmark"></i>電話:0912345678</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="leaflet-control">
+                            <div class="gc-btn gc-btn-xs" title="回到現有座標">
+                                <button id="btn-map-locate" class="navbar-minimalize"><i class="fa fa-location-arrow"></i></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="map-tools" class="leaflet-top leaflet-right">
+                        <div class="leaflet-control" style="clear: none; height: 30px; margin-right: 10px; margin-bottom: 10px;">
+                        </div>
+                        <div class="leaflet-control" id="map-tools-tabs" style="clear: none; height: 30px;">
+                            <div class="map-tools-buttons">
+                                <div class="leaflet-class gc-btn" title="匯出">
+                                    <button id="map-tools-export" class="btn-circle">匯出</button>
+                                </div>
+                                <div class="leaflet-class gc-btn" title="書籤">
+                                    <button id="map-tools-bookmark" class="btn-circle">書籤</button>
+                                </div>
+                                <div class="leaflet-class gc-btn" title="底圖">
+                                    <button id="map-tools-layer" class="btn-circle">底圖</button>
+                                </div>
+                                <div class="leaflet-class gc-btn" title="匯入">
+                                    <button id="map-tools-import" class="btn-circle">匯入</button>
+                                </div>
+                                <div class="leaflet-class gc-btn" title="手繪">
+                                    <button id="map-tools-draw" class="btn-circle">手繪</button>
+                                </div>
+                                <div class="leaflet-class gc-btn" title="動畫">
+                                    <button id="map-tools-animation" class="btn-circle">動畫</button>
+                                </div>
+                                <div class="leaflet-class gc-btn" title="清單">
+                                    <button id="map-tools-list" class="btn-circle">清單</button>
+                                </div>
+                                <div class="leaflet-class gc-btn" title="圖例">
+                                    <button id="map-tools-legend" class="btn-circle">圖例</button>
+                                </div>
+                                <!-- <div class="leaflet-class" title="User">
+                                    <a class="btn-circle" href="#">
+                                        <span>
+                                            <img class="img-circle" src="img/profile_small.jpg" />
+                                        </span>
+                                    </a>
+                                </div> -->
+                            </div>
+
+                            <div class="row wrapper page-heading">
+                                <div id="map-panels" class="list-group"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="leaflet-bottom">
+                        <div class="leaflet-control" id="bottom-panels">
+                            <div class="bottom-panels-tabs">
+                                
+                                <div class=tab-container>
+                                    <ul class="tabs clearfix" >
+                                        <li class=active > 
+                                            <a href=# >個案視角</a>
+                                        </li>
+                                        <li> 
+                                            <a href=# >群聚視角</a>
+                                        </li>
+                                        <li>
+                                            <a href=# >防治</a>
+                                        </li>
+                                        <li>
+                                            <a href=# >病媒</a>
+                                        </li>
+                                        <li>
+                                            <a href=# >醫療服務</a>
+                                        </li>
+                                        <li>
+                                            <a href=# >環境氣象</a>
+                                        </li>
+                                        <li>
+                                            <a href=# >警示個案</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class=outer-circle></div>
+                            </div>
+                            <div class="bottom-panels-content">
+
+
+                                
+                                <div class="col-lg-3">
+                                    <div class="ibox">
+                                        <div class="ibox-content">
+                                            <h2>登革熱疫情趨勢</h2>
+                                            <h3>總計 人</h3>
+                                            <div id="sparkline2"><canvas width="579" height="60" style="display: inline-block; width: 579px; height: 60px; vertical-align: top;"></canvas></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mainly scripts -->
+        <script src="js/jquery-3.1.1.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/plugins/metisMenu/jquery.metisMenu.js"></script>
+        <script src="js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+
+        <!-- Flot -->
+        <script src="js/plugins/flot/jquery.flot.js"></script>
+        <script src="js/plugins/flot/jquery.flot.tooltip.min.js"></script>
+        <script src="js/plugins/flot/jquery.flot.spline.js"></script>
+        <script src="js/plugins/flot/jquery.flot.resize.js"></script>
+        <script src="js/plugins/flot/jquery.flot.pie.js"></script>
+
+        <!-- Peity -->
+        <script src="js/plugins/peity/jquery.peity.min.js"></script>
+        <script src="js/demo/peity-demo.js"></script>
+
+        <!-- Custom and plugin javascript -->
+        <script src="js/inspinia.js"></script>
+        <script src="js/plugins/pace/pace.min.js"></script>
+
+        <!-- jQuery UI -->
+        <script src="js/plugins/jquery-ui/jquery-ui.min.js"></script>
+
+        <!-- Toastr -->
+        <script src="js/plugins/toastr/toastr.min.js"></script>
+        
+        <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+
+        <!-- Make sure you put this AFTER Leaflet's CSS -->
+        <script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js"
+            integrity="sha512-lInM/apFSqyy1o6s89K4iQUKg6ppXEgsVxT35HbzUupEVRh2Eu9Wdl4tHj7dZO0s1uvplcYGmt3498TtHq+log=="
+            crossorigin=""></script>
+
+        <script src="javascripts/map2.js"></script>
+        <script>
+        </script>
+    </body>
+</html>

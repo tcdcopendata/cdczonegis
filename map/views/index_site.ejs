@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-109063438-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-109063438-1');
+    </script>
+    <title>
+        <%=Language.Title%>
+    </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="地質, 圖台, 地質雲, 地質圖, 台灣, 地層, 活動斷層, 順向坡">
+    <meta name="description" content="提供方便的台灣地質資料GIS查詢和二維及三維地圖圖台，選定地圖種類及地質資料（地層、活動斷層、順向坡等）後，除能直接進行地質圖資料編輯、更換底圖資料，更可直接展繪為三維地質圖，且可於   三維下直接開關已選擇圖層、量測地形概略高度，以及匯入工程地質鑽井資料，並以三維視角進行觀察地下材料的分布。另提供紅藍立體對成像，可以紅藍眼鏡直接觀看立體成像。">
+    <meta property="og:title" content="地質綜合圖台">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="http://www.geologycloud.tw/GeoCloud/GeologicMap/Map/">
+    <meta property="og:description" content="提供方便的台灣地質資料GIS查詢和二維及三維地圖圖台。">
+    <!--     <meta property="og:image" content="http://www.geologycloud.tw/GeoCloud/GeologicMap/Map/Styles/images/icons/logo.jpg"> -->
+    <meta property="og:site_name" content="地質綜合圖台">
+    <link href="/map_core/style/bootstrap.min.css" rel="stylesheet">
+    <link href="/map_core/style/font-awesome.min.css" rel="stylesheet">
+    <link href="/map_core/style/cgs.css" rel="stylesheet">
+    <link href="/map_core/style/geo.css" rel="stylesheet">
+    <link href="/map_core/style/jquery-ui.css" rel="stylesheet">
+    <link href="/map_core/style/leaflet.css" rel="stylesheet">
+    <link href="/map_core/style/leaflet.draw.css" rel="stylesheet">
+    <link href="/map_core/style/leaflet.markercluster.css" rel="stylesheet">
+    <link href="/map_core/style/sweet-alert.css" rel="stylesheet">
+    <link href="/<%=Language.FolderName%>/stylesheets/map/map.css" rel="stylesheet">
+    <link href="/<%=Language.FolderName%>/stylesheets/map/site.css" rel="stylesheet">
+    <link href="/map_core/style/colorbox.css" rel="stylesheet">
+    <script src="/map_core/lib/modernizr.js"></script>
+    <script src="/map_core/lib/sweet-alert.min.js"></script>
+    <script src="/map_core/lib/Blob.js"></script>
+    <script src="/map_core/lib/FileSaver.js"></script>
+    <script src="/map_core/lib/html2canvas.js"></script>
+    <script src="/map_core/lib/async.min.js"></script>
+    <script src="/map_core/lib/jszip.min.js"></script>
+    <style id="clusterCss" type="text/css"></style>
+    <style type="text/css">
+    /*#bottom-panels-abc {
+        margin-bottom: 0px;
+        position: fixed;
+        z-index: 1000;
+        width: 100%;
+        height: 216px;
+        bottom: 0;
+    }
+
+    .tab-container{
+        margin: 0;
+        padding: 0;
+        max-height: 36px;
+    }
+
+    ul.tabs{
+        margin: 0;
+        list-style-type: none;
+        line-height: 36px;
+        max-height: 36px;
+        overflow: hidden;
+        display: inline-block;
+        padding-right: 20px;
+    }
+
+    ul.tabs > li.active{
+        background: #efefef;
+    }
+
+    ul.tabs > li.active:before{
+      border-color : transparent #efefef transparent transparent;
+    }
+
+
+    ul.tabs > li.active:after{
+      border-color : transparent transparent transparent #efefef;
+    }
+
+    ul.tabs > li{
+        float: left;
+        margin: 5px -10px 0;
+        border-top-right-radius: 25px 170px;
+        border-top-left-radius: 20px 90px;
+        padding: 0 30px 0 25px;
+        height: 170px;
+        background: #ddd;
+        position: initial;
+        box-shadow: 0 10px 20px rgba(0,0,0,.5);
+        max-width: 200px;
+    }
+
+    ul.tabs > li > a{
+      display: inline-block;
+      max-width:100%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      text-decoration: none;
+      color: #222;
+    }
+
+    ul.tabs > li:before, ul.tabs > li:after{
+      content : '';
+      background : transparent;
+      height: 20px;
+      width: 20px;
+      border-radius: 100%;
+      border-width: 10px;
+      top: 0px;
+      border-style : solid;
+      position : absolute;
+    }
+
+    ul.tabs > li:before{
+      border-color : transparent #ddd transparent transparent;
+      -webkit-transform : rotate(48deg);
+      left: -23px;
+    }
+
+    ul.tabs > li:after{
+      border-color : transparent transparent transparent #ddd;
+      -webkit-transform : rotate(-48deg);
+      right: -17px;
+    }*/
+    </style>
+</head>
+
+<body>
+    <div id="platform">
+        <div id="map"></div>
+        <div id="tab-function"></div>
+        <!-- <div id="bottom-panels-abc">
+            <div class="bottom-panels-tabs">
+                <div class="tab-container">
+                    <ul class="tabs clearfix">
+                        <li class="">
+                            <a href="#">個案視角</a>
+                        </li>
+                        <li>
+                            <a href="#">群聚視角</a>
+                        </li>
+                        <li>
+                            <a href="#">防治</a>
+                        </li>
+                        <li>
+                            <a href="#">病媒</a>
+                        </li>
+                        <li>
+                            <a href="#">醫療服務</a>
+                        </li>
+                        <li>
+                            <a href="#">環境氣象</a>
+                        </li>
+                        <li class="active">
+                            <a href="#" style="">警示個案</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="outer-circle"></div>
+            </div>
+            <div class="bottom-panels-content">
+                <div class="col-lg-3">
+                    <div class="ibox">
+                        <div class="ibox-content">
+                            <h2>登革熱疫情趨勢</h2>
+                            <h3>總計 人</h3>
+                            <div id="sparkline2">
+                                <canvas width="579" height="60" style="display: inline-block; width: 579px; height: 60px; vertical-align: top;"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+    </div>
+    <script type="text/javascript">
+    var L_PREFER_CANVAS = true;
+    </script>
+    <script src="/<%=Language.FolderName%>/language/map/<%=Language.LanguageCode%>.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places"></script>
+    <script src='/map_core/lib/pbf.js'></script>
+    <script src='/map_core/lib/geobuf.js'></script>
+    <script src="/map_core/lib/proj4.js"></script>
+    <script src="/map_core/lib/leaflet-src.js"></script>
+    <script src="/map_core/lib/leaflet.draw.js"></script>
+    <script src="/map_core/lib/leaflet.markercluster.js"></script>
+    <script src="/map_core/lib/geojson-vt.js"></script>
+    <script src="/map_core/lib/jquery.min.js"></script>
+    <script src="/map_core/lib/bootstrap.min.js"></script>
+    <script src="/map_core/lib/jquery-ui.min.js"></script>
+    <script src="/map_core/lib/d3.min.js"></script>
+    <script src="/map_core/lib/Sortable.min.js"></script>
+    <script src="/map_core/lib/jquery.colorbox.js"></script>
+    <script src="/map_core/map_core.js"></script>
+    <script src="/<%=Language.FolderName%>/javascripts/map/map.js"></script>
+    <script src="/<%=Language.FolderName%>/javascripts/map/app.js"></script>
+</body>
+
+</html>

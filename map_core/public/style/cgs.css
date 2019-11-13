@@ -1,0 +1,314 @@
+@font-face {
+    font-family: 'cgs';
+    src: url('../fonts/cgs.eot?305830');
+    src: url('../fonts/cgs.eot?305830#iefix') format('embedded-opentype'),
+    url('../fonts/cgs.woff?305830') format('woff'),
+    url('../fonts/cgs.ttf?305830') format('truetype'),
+    url('../fonts/cgs.svg?305830#cgs') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+/* Chrome hack: SVG is rendered more smooth in Windozze. 100% magic, uncomment if you need it. */
+
+
+/* Note, that will break hinting! In other OS-es font will be not as sharp as it could be */
+
+
+/*
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: 'cgs';
+    src: url('../font/cgs.svg?305830#cgs') format('svg');
+  }
+}
+*/
+
+[class^="cgs-icon-"]:before,
+[class*=" cgs-icon-"]:before {
+    font-family: "cgs";
+    font-style: normal;
+    font-weight: normal;
+    speak: none;
+
+    display: inline-block;
+    text-decoration: inherit;
+    width: 1em;
+    /*margin-right: .2em;*/
+    text-align: center;
+    /* opacity: .8; */
+    /* For safety - reset parent styles, that can break glyph codes*/
+    font-variant: normal;
+    text-transform: none;
+
+    /* fix buttons height, for twitter bootstrap */
+    line-height: 1em;
+
+    /* Animation center compensation - margins should be symmetric */
+    /* remove if not needed */
+    /*margin-left: .2em;*/
+    /* you can be more comfortable with increased icons size */
+    /* font-size: 120%; */
+    /* Uncomment for 3D effect */
+    /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
+}
+
+.cgs-icon-geo:before {
+    content: '\e800';
+}
+
+
+/* '' */
+
+.cgs-icon-house:before {
+    content: '\e801';
+}
+
+
+/* '' */
+
+.cgs-icon-io:before {
+    content: '\e802';
+}
+
+
+/* '' */
+
+.cgs-icon-man:before {
+    content: '\e803';
+}
+
+
+/* '' */
+
+.cgs-icon-man2:before {
+    content: '\e804';
+}
+
+
+/* '' */
+
+.cgs-icon-manflag:before {
+    content: '\e805';
+}
+
+
+/* '' */
+
+.cgs-icon-manflag2:before {
+    content: '\e806';
+}
+
+
+/* '' */
+
+.cgs-icon-minus:before {
+    content: '\e807';
+}
+
+
+/* '' */
+
+.cgs-icon-minus-h:before {
+    content: '\e808';
+}
+
+
+/* '' */
+
+.cgs-icon-minus-h2:before {
+    content: '\e809';
+}
+
+
+/* '' */
+
+.cgs-icon-photo:before {
+    content: '\e80a';
+}
+
+
+/* '' */
+
+.cgs-icon-plus:before {
+    content: '\e80b';
+}
+
+
+/* '' */
+
+.cgs-icon-plus-h:before {
+    content: '\e80c';
+}
+
+
+/* '' */
+
+.cgs-icon-plus-h2:before {
+    content: '\e80d';
+}
+
+
+/* '' */
+
+.cgs-icon-terrain:before {
+    content: '\e80e';
+}
+
+
+/* '' */
+
+.cgs-icon-terrain2:before {
+    content: '\e80f';
+}
+
+
+/* '' */
+
+.cgs-icon-tile:before {
+    content: '\e810';
+}
+
+
+/* '' */
+
+.cgs-icon-tile2:before {
+    content: '\e811';
+}
+
+
+/* '' */
+
+.cgs-icon-tint:before {
+    content: '\e812';
+}
+
+
+/* '' */
+
+.cgs-icon-visiualize:before {
+    content: '\e813';
+}
+
+
+/* '' */
+
+.cgs-icon-visiualize2:before {
+    content: '\e814';
+}
+
+
+/* '' */
+
+.cgs-icon-visiualize3:before {
+    content: '\e815';
+}
+
+
+/* '' */
+
+.cgs-icon-visiualize4:before {
+    content: '\e816';
+}
+
+
+/* '' */
+
+.cgs-icon-2d:before {
+    content: '\e817';
+}
+
+
+/* '' */
+
+.cgs-icon-3d:before {
+    content: '\e818';
+}
+
+
+/* '' */
+
+.cgs-icon-3d-2:before {
+    content: '\e819';
+}
+
+
+/* '' */
+
+.cgs-icon-attitude:before {
+    content: '\e81a';
+}
+
+
+/* '' */
+
+.cgs-icon-bulb:before {
+    content: '\e81b';
+}
+
+
+/* '' */
+
+.cgs-icon-dipslope:before {
+    content: '\e81c';
+}
+
+
+/* '' */
+
+.cgs-icon-draw:before {
+    content: '\e81d';
+}
+
+
+/* '' */
+
+.cgs-icon-draw2:before {
+    content: '\e81e';
+}
+
+
+/* '' */
+
+.cgs-icon-drill:before {
+    content: '\e81f';
+}
+
+
+/* '' */
+
+.cgs-icon-drill2:before {
+    content: '\e820';
+}
+
+
+/* '' */
+
+.cgs-icon-drill3:before {
+    content: '\e821';
+}
+
+
+/* '' */
+
+.cgs-icon-earthquake:before {
+    content: '\e822';
+}
+
+
+/* '' */
+
+.cgs-icon-flag:before {
+    content: '\e823';
+}
+
+
+/* '' */
+
+.cgs-icon-flag2:before {
+    content: '\e824';
+}
+
+
+/* '' */

@@ -1,0 +1,18 @@
+npm install --save vue
+npm install --save vue-loader
+npm install --save vue-style-loader
+npm install --save vue-template-compiler
+npm install --save vue-hot-reload-api
+
+npm install --save babel
+npm install --save babel-loader
+npm install --save babel-core
+npm install --save babel-plugin-transform-runtime
+npm install --save babel-preset-es2015
+npm install --save babel-runtime
+
+
+npm install css-loader --save-dev
+npm install style-loader --save-dev
+
+npm isntall extract-text-webpack-plugin --save-dev

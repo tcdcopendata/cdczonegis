@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>人畜共通傳染病決策系統</title>
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/font-awesome/css/font-awesome.css" rel="stylesheet">
+    <!-- Morris -->
+    <link href="/css/plugins/morris/morris-0.4.3.min.css" rel="stylesheet">
+    <link href="/css/animate.css" rel="stylesheet">
+    <link href="/css/style.css" rel="stylesheet">
+</head>
+
+<body class="gray-bg">
+    <div class="animated fadeInDown">
+        <div class="row">
+            <div class="col-lg-8 col-md-10 col-sm-12 col-xs-12" style="position: absolute;left: 50%;transform: translateX(-50%);">
+                <div class="ibox">
+                    <div class="ibox-title">
+                        <h5>使用者權限申請
+                            <small> </small>
+                        </h5>
+                    </div>
+                    <div class="ibox-content">
+                        <div class="form-horizontal" role="form" method="post">
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">
+                                    <span style="color: red">*</span>姓名</label>
+                                <div class="col-sm-10">
+                                    <input type="text" id="txt_name" name="name" required="" class="form-control">
+                                </div>
+                            </div>
+                            <div class="hr-line-dashed"></div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">
+                                    <span style="color: red">*</span>身分證字號</label>
+                                <div class="col-sm-10">
+                                    <input type="text" id="txt_userid" name="userid" required="" class="form-control">
+                                </div>
+                            </div>
+                            <div class="hr-line-dashed"></div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">
+                                    <span style="color: red">*</span>E-mail</label>
+                                <div class="col-sm-10">
+                                    <input type="text" id="txt_email" name="email" required="" class="form-control">
+                                </div>
+                            </div>
+                            <div class="hr-line-dashed"></div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">
+                                    <span style="color: red">*</span>機關單位</label>
+                                <div class="col-sm-10">
+                                    <span id="textSelectedUnit" style="color:red;">
+                                        請選擇機關單位</span>
+                                    <div id="divDropdownLevel" class="btn-group">
+                                        <button id="btnOrgLevel" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                                            選擇權責等級
+                                            <span class="caret"></span>
+                                        </button>
+                                        <ul id="selectDropdownLevel" class="dropdown-menu">
+                                            <li>
+                                                <a href="#">全國</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">區管中心</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">衛生局</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">衛生所</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div id="divDropdownCity" class="btn-group">
+                                        <button id="btnOrgCity" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                                            行政區
+                                            <span class="caret"></span>
+                                        </button>
+                                        <ul id="selectDropdownCity" class="dropdown-menu">
+                                        </ul>
+                                    </div>
+                                    <div id="divDropdownUnit" class="btn-group">
+                                        <button id="btnOrgUnit" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                                            機關單位
+                                            <span class="caret"></span>
+                                        </button>
+                                        <ul id="selectDropdownUnit" class="dropdown-menu">
+                                        </ul>
+                                    </div>
+                                    <!-- <input type="text" id="txt_organization" name="organization" required="" class="form-control"> -->
+                                </div>
+                            </div>
+                            <div class="hr-line-dashed"></div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">
+                                    聯絡電話</label>
+                                <div class="col-sm-10">
+                                    <input type="text" id="txt_tel" name="tel" class="form-control">
+                                </div>
+                            </div>
+                            <div class="hr-line-dashed"></div>
+                            <div class="form-group">
+                                <div class="col-sm-4 col-sm-offset-5">
+                                    <button class="btn btn-white" type="button" onclick="javascript:window.history.back()">返回</button>
+                                    <button class="btn btn-primary" type="button" onclick="user_apply()">送出申請</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Mainly scripts -->
+    <script src="/map_core/lib/jquery.min.js"></script>
+    <script src="/map_core/lib/bootstrap.min.js"></script>
+    <script src="/map/lib/sweetalert.min.js"></script>
+    <script src="/map/javascripts/user_apply.js"></script>
+    <script>
+    init();
+
+    function init() {
+    $('#divDropdownCity').hide();
+    $('#divDropdownUnit').hide();
+    userOrgList();
+
+    $("#selectDropdownLevel").on('click', 'li a', function () {
+        selectDropdownLevel($(this).text());
+    });
+
+    $("#selectDropdownCity").on('click', 'li a', function () {
+        selectDropdownCity($(this).text());
+    });
+
+    $("#selectDropdownUnit").on('click', 'li a', function () {
+        selectDropdownUnit($(this).text());
+    });
+}
+    </script>
+</body>
+
+</html>

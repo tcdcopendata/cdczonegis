@@ -1,0 +1,478 @@
+﻿html, body {
+    width: 100%;
+    height: 100%;
+    background: url(images/mygis/background.png) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    font-family: Microsoft JhengHei,微軟正黑體;
+}
+
+#div_Banner {
+    width: 100%;
+    height: 40px;
+    background-image: url(images/mygis/intro1.jpg);
+}
+
+    #div_Banner #div_Return {
+        width: 32px;
+        height: 32px;
+        background-image: url(images/mygis/return.png);
+        background-size: cover;
+        display: inline-block;
+        margin-left: 7px;
+        vertical-align: middle;
+        cursor: pointer;
+    }
+
+    #div_Banner span {
+        vertical-align: middle;
+        color: white;
+        font-family: 微軟正黑體;
+        font-size: large;
+        text-shadow: 0 0 4px #000000;
+        margin-left: 5px;
+        cursor: pointer;
+    }
+
+.bannerStyle {
+    display: inline-block;
+    width: calc(90%/4 - 1.2em);
+    height: 55px;
+    border: 1px solid #CCCCFF;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1.2em;
+    line-height: 55px;
+    text-align: center;
+}
+
+.colorSquare {
+    float: left;
+    width: 30px;
+    height: 30px;
+    margin: 3px;
+    border: 1px solid #CCCCFF;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1.2em;
+}
+
+.form-control {
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
+
+    .form-control:focus {
+        border-color: #66afe9;
+        outline: 0;
+        -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6);
+        box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6);
+    }
+
+    .form-control::-moz-placeholder {
+        color: #999;
+        opacity: 1;
+    }
+
+    .form-control:-ms-input-placeholder {
+        color: #999;
+    }
+
+    .form-control::-webkit-input-placeholder {
+        color: #999;
+    }
+
+    .form-control[disabled],
+    .form-control[readonly],
+    fieldset[disabled] .form-control {
+        background-color: #eee;
+        opacity: 1;
+    }
+
+    .form-control[disabled],
+    fieldset[disabled] .form-control {
+        cursor: not-allowed;
+    }
+
+
+.colorPicker {
+    width: 85px;
+    border-width: 1px;
+    text-align: center;
+    cursor: pointer;
+    font-size:small;
+    border-radius: 5px;
+}
+
+input.LayerName {
+    width: 150px;
+    margin: 2px;
+    display: inline-block;
+}
+
+select.LayerFileType {
+    width: 100px;
+    display: inline-block;
+}
+
+input.LayerURL {
+    width: 220px;
+    margin: 2px;
+    display: inline-block;
+}
+
+/*input.LayerColor {
+    width: 85px;
+    margin: 2px;
+    display: none;
+    /*background-color: red;
+}*/
+
+.div_imgLayerParameters > span {
+    margin: 0 44px 0 4px;
+    font-size: small;
+}
+
+input.LayerImageBBOX {
+    width: 80px;
+    margin: 2px;
+    display: inline-block;
+}
+
+#div_myGISGenerate {
+    /*width: calc(100% - 420px );
+    height: 80%;*/
+    width: auto;
+    margin: 20px 30px 20px 30px;
+    background-color: white;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    -webkit-box-shadow: 0px 0px 32px 0px rgba(0,0,0,0.4);
+    -moz-box-shadow: 0px 0px 32px 0px rgba(0,0,0,0.4);
+    box-shadow: 0px 0px 32px 0px rgba(0,0,0,0.4);
+    padding: 20px;
+}
+
+#div_controller {
+    margin-right: 420px;
+    min-width: 610px;
+}
+
+    #div_controller > hr {
+        width: 96%;
+        height: 2px;
+        background-color: #00a2e8;
+    }
+
+span.title {
+    font-size: 1.5em;
+    line-height: 2em;
+}
+
+span.stepTitle {
+    background: -webkit-linear-gradient(left, rgb(192, 231, 242), rgba(192, 231, 242, 0.3)); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(right, rgb(192, 231, 242), rgba(192, 231, 242, 0.3)); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(right, rgb(192, 231, 242), rgba(192, 231, 242, 0.3)); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(to right, rgb(192, 231, 242), rgba(192, 231, 242, 0.3));
+    padding: 3px 40px;
+    -moz-border-radius: 30px 4px;
+    -webkit-border-radius: 30px 4px;
+    border-radius: 30px 4px;
+}
+
+.div_baseMapList {
+    display: inline-block;
+    width: 120px;
+    height: 55px;
+    border: 1px solid #CCCCFF;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+    cursor: pointer;
+    /*font-size: 1.2em;
+    line-height: 55px;
+    text-align: center;*/
+}
+
+    .div_baseMapList > span {
+        /*position: relative;
+    bottom: 0;
+    right: 0;*/
+        background-color: rgba(255,255,255,.8);
+        -webkit-border-top-left-radius: 3px;
+        border-top-left-radius: 3px;
+        padding: 4px;
+        font-size: 12px;
+    }
+
+.selected {
+    /*border-width: 3px;*/
+    -moz-box-shadow: 0 0 5px #8286ff;
+    -webkit-box-shadow: 0 0 5px #8286ff;
+    box-shadow: 0 0 7px #8286ff;
+}
+
+#div_Layers hr {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    width: 90%;
+}
+
+/*preview window*/
+.div_previewElement {
+    background-color: #00A2E8;
+}
+
+#div_preview {
+    width: 400px;
+    height: 300px;
+    background: url(images/mygis/previewBackground.png) no-repeat center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    right: 55px;
+    position: fixed;
+    top: 80px;
+    -webkit-box-shadow: 0px 2px 15px 0px rgba(0,0,0,0.6);
+    -moz-box-shadow: 0px 2px 15px 0px rgba(0,0,0,0.6);
+    box-shadow: 0px 2px 15px 0px rgba(0,0,0,0.6);
+}
+
+    #div_preview > #div_previewTitle {
+        height: 72px;
+        width: 100%;
+        line-height: 72px;
+        position: relative;
+        z-index: 1300;
+        font-size: 36px;
+        padding: 0 10px;
+    }
+
+    #div_preview > #div_previewLayerList {
+        width: 120px;
+        height: calc(100% - 72px);
+        position: relative;
+        /*top: 72px;*/
+        padding: 6px;
+        clear: both;
+        float: left;
+    }
+
+#div_previewLayerTheme {
+    background-color: #fff;
+    padding: 8px;
+    width: 100%;
+    height: 100%;
+}
+
+#previewLayerList_PanelHeading {
+    padding: 3px;
+    font-size: 14px;
+}
+
+#previewLayerList_PanelBody {
+    background-color: #fff;
+    border: 1px solid;
+    border-color: #00A2E8;
+    height: calc(100% - 22px);
+}
+
+#div_previewZoomButton {
+    position: relative;
+    width: 30px;
+    height: 60px;
+    text-align: center;
+    vertical-align: middle;
+    top: 20px;
+    left: 20px;
+    float: left;
+}
+
+    #div_previewZoomButton > div {
+        width: 30px;
+        height: 30px;
+        font-weight: 600;
+        display: block;
+    }
+
+#div_previewMapTool {
+    float: right;
+    margin: 20px;
+    width: 30px;
+    height: 30px;
+}
+
+#div_previewMapList {
+    float: right;
+    width: 100px;
+    height: calc(100% - 72px);
+}
+
+#div_previewMapList_PanelHeading {
+    padding: 3px;
+    font-size: 14px;
+}
+
+#div_previewMapList_PanelBody {
+    background-color: #fff;
+    border: 1px solid;
+    border-color: #00A2E8;
+    height: calc(100% - 25px);
+}
+
+.div_previewBaseMapList {
+    width: 80px;
+    height: 45px;
+    border: 1px solid #CCCCFF;
+    margin: 2px auto;
+}
+
+    .div_previewBaseMapList > span {
+        background-color: rgba(255,255,255,.8);
+        -webkit-border-top-left-radius: 3px;
+        border-top-left-radius: 3px;
+        padding: 3px;
+        font-size: 8px;
+    }
+
+#div_imageLayerMap {
+    width: 400px;
+    height: 300px;
+    position: fixed;
+    right: 55px;
+    bottom: 120px;
+    -webkit-box-shadow: 0px 2px 15px 0px rgba(0,0,0,0.6);
+    -moz-box-shadow: 0px 2px 15px 0px rgba(0,0,0,0.6);
+    box-shadow: 0px 2px 15px 0px rgba(0,0,0,0.6);
+    /*background-color:red;*/
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+}
+
+#div_previewImageMap {
+    width: 100%;
+    height: 100%;
+}
+
+
+/*slidr bar style lol*/
+
+input[type=range].sliderBar {
+    display: inline-block;
+    -webkit-appearance: none;
+    width: 120px;
+    margin: 7px 5px;
+}
+
+    input[type=range].sliderBar:focus {
+        outline: none;
+    }
+
+    input[type=range].sliderBar::-webkit-slider-runnable-track {
+        width: 100%;
+        height: 11.4px;
+        cursor: pointer;
+        box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
+        background: rgba(0, 162, 232, 0.78);
+        border-radius: 1.3px;
+        border: 0.2px solid #010101;
+    }
+
+    input[type=range].sliderBar::-webkit-slider-thumb {
+        box-shadow: 0px 0px 6px #000000, 0px 0px 0px #0d0d0d;
+        border: 0px solid #00001e;
+        height: 26px;
+        width: 26px;
+        border-radius: 26px;
+        background: #ffffff;
+        cursor: pointer;
+        -webkit-appearance: none;
+        margin-top: -7.5px;
+    }
+
+    input[type=range].sliderBar:focus::-webkit-slider-runnable-track {
+        background: rgba(28, 187, 255, 0.78);
+    }
+
+    input[type=range].sliderBar::-moz-range-track {
+        width: 100%;
+        height: 11.4px;
+        cursor: pointer;
+        box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
+        background: rgba(0, 162, 232, 0.78);
+        border-radius: 1.3px;
+        border: 0.2px solid #010101;
+    }
+
+    input[type=range].sliderBar::-moz-range-thumb {
+        box-shadow: 0px 0px 6px #000000, 0px 0px 0px #0d0d0d;
+        border: 0px solid #00001e;
+        height: 26px;
+        width: 26px;
+        border-radius: 26px;
+        background: #ffffff;
+        cursor: pointer;
+    }
+
+    input[type=range].sliderBar::-ms-track {
+        width: 100%;
+        height: 11.4px;
+        cursor: pointer;
+        background: transparent;
+        border-color: transparent;
+        color: transparent;
+    }
+
+    input[type=range].sliderBar::-ms-fill-lower {
+        background: rgba(0, 126, 181, 0.78);
+        border: 0.2px solid #010101;
+        border-radius: 2.6px;
+        box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
+    }
+
+    input[type=range].sliderBar::-ms-fill-upper {
+        background: rgba(0, 162, 232, 0.78);
+        border: 0.2px solid #010101;
+        border-radius: 2.6px;
+        box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
+    }
+
+    input[type=range].sliderBar::-ms-thumb {
+        box-shadow: 0px 0px 6px #000000, 0px 0px 0px #0d0d0d;
+        border: 0px solid #00001e;
+        height: 26px;
+        width: 26px;
+        border-radius: 26px;
+        background: #ffffff;
+        cursor: pointer;
+        height: 11.4px;
+    }
+
+    input[type=range].sliderBar:focus::-ms-fill-lower {
+        background: rgba(0, 162, 232, 0.78);
+    }
+
+    input[type=range].sliderBar:focus::-ms-fill-upper {
+        background: rgba(28, 187, 255, 0.78);
+    }

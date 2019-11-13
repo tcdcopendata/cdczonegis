@@ -1,0 +1,332 @@
+﻿html, body {
+    width: 100%;
+    height: 100%;
+    background: url(images/mygis/background.png) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    font-family: Microsoft JhengHei,微軟正黑體;
+}
+
+.carousel-caption {
+    -webkit-transform: translateX(-20%);
+    -moz-transform: translateX(-20%);
+    -ms-transform: translateX(-20%);
+    -o-transform: translateX(-20%);
+    transform: translateX(-20%);
+    width: 350px;
+}
+
+    .carousel-caption h1 {
+        font-size: 42px;
+        color: #fff;
+    }
+
+    .carousel-caption p {
+        font-size: 18px;
+        color: #fff;
+    }
+
+#div_intro {
+    position: relative;
+    /*top: 50%;*/
+    top: 100px;
+    /*-webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    transform: translateY(-50%);*/
+    width: 100%;
+    height: 75%;
+}
+
+#div_viewCurrentMap {
+    margin-top: 80px;
+    width: 100%;
+    text-align: center;
+}
+
+
+#div_myMapList {
+    padding: 20px 50px 20px 50px;
+    text-align: center;
+}
+
+    #div_myMapList > div {
+        display: inline-block;
+        margin: 10px 8px;
+    }
+
+.card-square {
+    width: 320px;
+    height: 320px;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.12), 0 2px 2px rgba(0, 0, 0, 0.2);
+    background-color: #fff;
+}
+
+    .card-square:active,
+    .card-square:hover,
+    .card-square:focus {
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+    }
+
+    .card-square > .card-title {
+        background-color: #46B6AC;
+        height: 190px;
+        margin-top: 0;
+    }
+
+        .card-square > .card-title > .card-title-text {
+            color: #fff;
+            font-size: x-large;
+            margin: 0;
+            padding: 10px 5px;
+        }
+
+    .card-square > .card-description {
+        margin-top: 0;
+        padding: 0;
+        height: 80px;
+        text-align: left;
+    }
+
+.bannerStyle {
+    display: inline-block;
+    width: calc(90%/4 - 1.2em);
+    height: 55px;
+    border: 1px solid #CCCCFF;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1.2em;
+    line-height: 55px;
+    text-align: center;
+}
+
+.colorSquare {
+    float: left;
+    width: 30px;
+    height: 30px;
+    margin: 3px;
+    border: 1px solid #CCCCFF;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1.2em;
+}
+
+.colorPicker {
+    width: 80px;
+    border-width: 0;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#myModal {
+    /*min-width: 1000px;*/
+}
+
+.modal-body {
+    min-width: 975px;
+}
+
+input.LayerName {
+    width: 150px;
+    margin: 2px;
+    display: inline-block;
+}
+
+select.fType {
+    width: 100px;
+    display: inline-block;
+}
+
+input.LayerURL {
+    width: 175px;
+    margin: 2px;
+    display: inline-block;
+}
+
+#div_myGISGenerate {
+    width: calc(100% - 420px );
+    height: 80%;
+}
+
+.div_baseMapList {
+    display: inline-block;
+    width: 120px;
+    height: 55px;
+    border: 1px solid #CCCCFF;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+    cursor: pointer;
+    /*font-size: 1.2em;
+    line-height: 55px;
+    text-align: center;*/
+}
+
+    .div_baseMapList > span {
+        /*position: relative;
+    bottom: 0;
+    right: 0;*/
+        background-color: rgba(255,255,255,.8);
+        -webkit-border-top-left-radius: 3px;
+        border-top-left-radius: 3px;
+        padding: 4px;
+        font-size: 12px;
+    }
+
+
+/*preview window*/
+.div_previewElement {
+    background-color: #00A2E8;
+}
+
+#div_preview {
+    width: 400px;
+    height: 300px;
+    background: url(images/mygis/previewBackground.png) no-repeat center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    right: 33px;
+    position: fixed;
+    top: 90px;
+    -webkit-box-shadow: 0px 2px 15px 0px rgba(0,0,0,0.6);
+    -moz-box-shadow: 0px 2px 15px 0px rgba(0,0,0,0.6);
+    box-shadow: 0px 2px 15px 0px rgba(0,0,0,0.6);
+}
+
+    #div_preview > #div_previewTitle {
+        height: 72px;
+        width: 100%;
+        line-height: 72px;
+        position: relative;
+        z-index: 1300;
+        font-size: 36px;
+        padding: 0 10px;
+    }
+
+    #div_preview > #div_previewLayerList {
+        width: 120px;
+        height: calc(100% - 72px);
+        position: relative;
+        /*top: 72px;*/
+        padding: 6px;
+        clear: both;
+        float: left;
+    }
+
+#div_previewLayerTheme {
+    background-color: #fff;
+    padding: 8px;
+    width: 100%;
+    height: 100%;
+}
+
+#previewLayerList_PanelHeading {
+    padding: 3px;
+    font-size: 14px;
+}
+
+#previewLayerList_PanelBody {
+    background-color: #fff;
+    border: 1px solid;
+    border-color: #00A2E8;
+    height: calc(100% - 22px);
+}
+
+#div_previewZoomButton {
+    position: relative;
+    width: 30px;
+    height: 60px;
+    text-align: center;
+    vertical-align: middle;
+    top: 20px;
+    left: 20px;
+    float: left;
+}
+
+    #div_previewZoomButton > div {
+        width: 30px;
+        height: 30px;
+        font-weight: 600;
+        display: block;
+    }
+
+#div_previewMapTool {
+    float: right;
+    margin: 20px;
+    width: 30px;
+    height: 30px;
+}
+
+#div_previewMapList {
+    float: right;
+    width: 100px;
+    height: calc(100% - 72px);
+}
+
+#div_previewMapList_PanelHeading {
+    padding: 3px;
+    font-size: 14px;
+}
+
+#div_previewMapList_PanelBody {
+    background-color: #fff;
+    border: 1px solid;
+    border-color: #00A2E8;
+    height: calc(100% - 25px);
+}
+
+.div_previewBaseMapList {
+    width: 80px;
+    height: 45px;
+    border: 1px solid #CCCCFF;
+    margin: 2px auto;
+}
+
+    .div_previewBaseMapList > span {
+        background-color: rgba(255,255,255,.8);
+        -webkit-border-top-left-radius: 3px;
+        border-top-left-radius: 3px;
+        padding: 3px;
+        font-size: 8px;
+    }
+
+.selected {
+    border-width: 3px;
+    -moz-box-shadow: 0 0 5px #8286ff;
+    -webkit-box-shadow: 0 0 5px #8286ff;
+    box-shadow: 0 0 5px #8286ff;
+}
+
+
+span.title {
+    font-size: 1.5em;
+    line-height: 2em;
+}
+
+hr {
+    width: 90%;
+    height: 2px;
+    background-color: #00a2e8;
+}
+
+span.stepTitle {
+    background: -webkit-linear-gradient(left,  rgb(192, 231, 242), rgba(192, 231, 242, 0.3)); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(right,  rgb(192, 231, 242), rgba(192, 231, 242, 0.3)); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(right,  rgb(192, 231, 242), rgba(192, 231, 242, 0.3)); /* For Firefox 3.6 to 15 */
+
+    background: linear-gradient(to right, rgb(192, 231, 242), rgba(192, 231, 242, 0.3));
+    padding: 3px 40px;
+    -moz-border-radius: 30px 4px;
+    -webkit-border-radius: 30px 4px;
+    border-radius: 30px 4px;
+}

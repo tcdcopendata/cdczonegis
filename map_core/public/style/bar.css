@@ -1,0 +1,90 @@
+@charset "utf-8";
+.BarControl{
+	width:100%;
+	height:100%;
+	padding:0;	
+    margin-bottom: 10px;
+	display:inline-block;
+	}
+.TheBar{
+	position:relative;
+	width:calc(90%);/*- 114px*/
+	margin-left:15px;
+	height:27px;
+	border-radius:4px;
+	/* -webkit-border-radius:2px; */
+	-moz-border-radius:2px;
+	background:#EBE8E8;
+	overflow:visible;
+	}
+.TheColorBar{
+	width:0px;
+	border-radius:4px;
+	-webkit-border-radius:4px;
+	-moz-border-radius:0px;
+	height:100%;
+	background:#3497DB;
+	float:left;
+	}
+.TimeBall{
+	width:10px;
+	height:27px;
+	border-radius:5px;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	background:#1797ea;
+	position:absolute;
+	left:-4px;
+	top:0px;
+	z-index:0;
+	cursor:pointer;
+	}
+.BarTimeBall{
+	width:10px;
+	height:10px;
+	border-radius:5px;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	background:#3498DB;
+	position:absolute;
+	left:-4px;
+	top:-3px;
+	z-index:2;
+	cursor:pointer;
+	}
+.BarBeginTime,.BarFinishTime,.TheBar{
+	display:inline-block;
+	vertical-align:middle;
+	padding:0px;
+	}
+.bar_start{
+	width:30px;
+	height:30px;
+	background-image:url('images/start.png');
+	background-repeat:no-repeat;
+	float:left;
+	margin-left: 25px;
+	}
+.bar_stop{
+	width:30px;
+	height:30px;
+	background-image:url('images/stop.png');
+	background-repeat:no-repeat;
+	float:left;
+	margin-left: 20px;
+	}
+.bar_restart{
+		width:30px;
+		height:30px;
+		background-image:url('images/restart.png');
+		background-repeat:no-repeat;
+		float:left;
+		margin-left: 20px;
+		}
+.bar_record{
+	width:30px;
+	height:30px;
+	background-image:url('images/record.png');
+	background-repeat:no-repeat;
+	margin-left: 173px;
+	}
