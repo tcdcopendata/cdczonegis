@@ -8,12 +8,15 @@ This system is built with node.js, there are three projects:
 
 ## Install
 we use pm2 to manage the system, install with:
+
     npm install pm2 -g
 
 enter the three folders, use command below to install package:
+
     npm install
 
 now we can enable all the server with command:
+
     pm2 start bin/www --name=<project_name>
 
 
